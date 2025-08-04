@@ -32,6 +32,7 @@ return {
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
     },
+
     config = function()
       -- Brief aside: **What is LSP?**
       --
@@ -222,7 +223,6 @@ return {
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-        --
 
         lua_ls = {
           -- cmd = { ... },
@@ -273,6 +273,42 @@ return {
           end,
         },
       }
+
+      -- Python --
+      local util = require 'lspconfig/util'
+      local path = util.path
+      local function get_python_path(workspace)
+        -- Use activated virtualenv.
+        if vim.env.VIRTUAL_ENV then
+          return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+        end
+
+        -- Find and use virtualenv in workspace directory.
+        for _, pattern in ipairs { '*', '.*' } do
+          local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+          if match ~= '' then
+            return path.join(path.dirname(match), 'bin', 'python')
+          end
+        end
+
+        -- Fallback to system Python.
+        return vim.fn.exepath 'python3' or vim.fn.exepath 'python'
+      end
+
+      vim.lsp.enable 'ruff'
+
+      vim.lsp.config('pyright', {
+        before_init = function(_, config)
+          config.settings.python.pythonPath = get_python_path(config.root_dir)
+        end,
+        settings = {
+          pyright = {
+            -- Using Ruff's import organizer
+            disableOrganizeImports = true,
+          },
+        },
+      })
+      vim.lsp.enable 'pyright'
     end,
   },
 }
