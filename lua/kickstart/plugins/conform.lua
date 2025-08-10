@@ -32,7 +32,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { 'gofmt' },
+        -- go = { 'gofmt' },
         -- Conform can also run multiple formatters sequentially
         python = { 'ruff_fix', 'ruff_format', 'black' },
         --
