@@ -245,6 +245,23 @@ return {
           },
         },
 
+        ts_ls = {},
+        black = {},
+        buf_ls = {},
+        cpplint = {},
+        cpptools = {},
+        docker_compose_language_service = {},
+        dockerls = {},
+        eslint = {},
+        eslint_d = {},
+        gofumpt = {},
+        goimports = {},
+        prettier = {},
+        prettierd = {},
+        pyright = {},
+        ruff = {},
+        rust_analyzer = {},
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
