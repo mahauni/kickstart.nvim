@@ -261,6 +261,7 @@ return {
         pyright = {},
         ruff = {},
         rust_analyzer = {},
+        stylua = {},
 
         lua_ls = {
           -- cmd = { ... },
