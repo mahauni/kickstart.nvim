@@ -246,22 +246,12 @@ return {
         },
 
         ts_ls = {},
-        black = {},
         buf_ls = {},
-        cpplint = {},
         cpptools = {},
         docker_compose_language_service = {},
         dockerls = {},
-        eslint = {},
-        eslint_d = {},
-        gofumpt = {},
-        goimports = {},
-        prettier = {},
-        prettierd = {},
         pyright = {},
-        ruff = {},
         rust_analyzer = {},
-        stylua = {},
 
         lua_ls = {
           -- cmd = { ... },
@@ -295,6 +285,21 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'golangci-lint',
+        'vale',
+        'markdownlint',
+        'jsonlint',
+        'hadolint',
+        'black',
+        'eslint',
+        'eslint_d',
+        'gofumpt',
+        'goimports',
+        'prettier',
+        'prettierd',
+        'ruff',
+        'stylua',
+        'cpplint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
