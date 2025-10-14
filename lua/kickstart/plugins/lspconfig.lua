@@ -245,7 +245,15 @@ return {
           },
         },
 
-        ts_ls = {},
+        -- ts_ls = {},
+        vtsls = {
+          experimental = {
+            completion = {
+              enableServerSideFuzzyMatch = true,
+              entriesLimit = 50,
+            },
+          },
+        },
         buf_ls = {},
         cpptools = {},
         docker_compose_language_service = {},
@@ -291,7 +299,6 @@ return {
         'jsonlint',
         'hadolint',
         'black',
-        'eslint',
         'eslint_d',
         'gofumpt',
         'goimports',
