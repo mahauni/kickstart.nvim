@@ -220,9 +220,8 @@ return {
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
-        -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
 
+        -- Golang
         gopls = {
           analyses = {
             nilness = true,
@@ -245,6 +244,7 @@ return {
           },
         },
 
+        -- Typescript
         -- ts_ls = {},
         vtsls = {
           experimental = {
@@ -254,11 +254,18 @@ return {
             },
           },
         },
+
         buf_ls = {},
         cpptools = {},
+
+        -- Docker
         docker_compose_language_service = {},
         dockerls = {},
+
+        --Python
         pyright = {},
+
+        -- Rust
         rust_analyzer = {},
 
         lua_ls = {
