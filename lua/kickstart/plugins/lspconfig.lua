@@ -246,14 +246,15 @@ return {
 
         -- Typescript
         -- ts_ls = {},
-        vtsls = {
-          experimental = {
-            completion = {
-              enableServerSideFuzzyMatch = true,
-              entriesLimit = 50,
-            },
-          },
-        },
+        tsgo = {},
+        -- vtsls = {
+        --   experimental = {
+        --     completion = {
+        --       enableServerSideFuzzyMatch = true,
+        --       entriesLimit = 50,
+        --     },
+        --   },
+        -- },
 
         buf_ls = {},
         cpptools = {},
